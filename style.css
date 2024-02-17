@@ -1,14 +1,9 @@
 body {
-    background-image: url("img/fondo.png");
-    background-size: cover;
-    background-position: center center;
-    font-family: "Roboto", sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 .container {
     max-width: 600px;
@@ -50,18 +45,6 @@ button {
 
 button:hover {
     background-color: #0056b3;
-}
-
-.errorAlturaUsuario {
-    color: red;
-    margin: 0px;
-    font-size: 16px;
-}
-
-.errorPesoUsuario {
-    color: red;
-    margin: 0px;
-    font-size: 16px;
 }
 
 
