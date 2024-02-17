@@ -42,8 +42,14 @@ function intepretacion(){
         case (imc >= 25.0 && imc < 30):
           resultado = "se encuentra dentro del rango de sobrepeso. ";
           break;
+        case (imc >= 30 && imc < 35):
+          resultado = "se encuentra dentro del rango de obesidad I";
+          break;
+        case (imc >= 35 && imc < 40):
+          resultado = "se encuentra dentro del rango de obesidad II. ";
+          break;
         default:
-          resultado = "se encuentra dentro del rango de obesidad.";
+          resultado = "se encuentra dentro del rango de obesidad III.";
           break;
       }
 
