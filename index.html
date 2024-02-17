@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="icon" href="img/iconoH.png" type="image/x-icon">
     <title>IMC</title>
 </head>
@@ -21,15 +19,19 @@
             <div class="altura input-group">
                 <label for="alturaUsuario">Ingresa tu altura en metros: </label>
                 <input min="0.8" max="3" id="alturaUsuario" type="number" placeholder="Tu altura aqui">
+                <p id="errorAlturaUsuario" class="errorAlturaUsuario"></p>
             </div>
             <div class="peso input-group">
                 <label for="pesoUsuario">Ingresa tu peso en kilogramos</label>
                 <input min="15" max="700" id="pesoUsuario" type="number" placeholder="Tu peso aqui">
+                <p id="errorPesoUsuario" class="errorPesoUsuario"></p>
             </div>
-            <button onclick="intepretacion()">Calcular!</button>
+            <button id="botonCalcular">Calcular!</button>
         </div>
+
         <div id="interpretacionDiv" class="interpretacion">
             <div id="headerIntertretacion" class="headerIntertretacion">
+
                 <h2>Aca su interpretación!</h2>
                 <p class="cerrarInterpretacion" onclick="cerrarInterpretacion()">X</p>
             </div>
@@ -38,8 +40,99 @@
         </div>
 
     </div>
-</body>
+    <script>
+        let interpretacionCajon = document.getElementById("interpretacionDiv");
+        interpretacionCajon.classList.add("noMostrar");
 
-<script src="script.js"></script>
+        function procesarCalculoImc() {
+            calcularImc();
+            interpretacion();
+        }
+
+        document.getElementById("botonCalcular").addEventListener("click", procesarCalculoImc);
+
+        document.addEventListener("keydown", function (event) {
+            if (event.keyCode === 13) {
+                procesarCalculoImc();
+            }
+        });
+
+        function calcularImc() {
+            let altura = parseFloat(document.getElementById("alturaUsuario").value);
+            let peso = parseFloat(document.getElementById("pesoUsuario").value);
+            console.log(peso);
+
+            const elementErrorAltura = document.getElementById('errorAlturaUsuario');
+            const elementErrorPeso = document.getElementById('errorPesoUsuario');
+
+            elementErrorAltura.textContent = '';
+            elementErrorPeso.textContent = '';
+
+            if (isNaN(altura)) {
+                elementErrorAltura.textContent = 'Debes ingresar la altura';
+                return;
+            }
+            if (isNaN(peso)) {
+                elementErrorPeso.textContent = 'Debes ingresar el peso';
+                return;
+            }
+            if (altura < 0.8 || altura > 3) {
+                elementErrorAltura.textContent = "La altura debe estar entre 0.8 y 3 metros";
+                return;
+            }
+            if (peso < 15 || peso > 700) {
+                elementErrorPeso.textContent = "El peso debe estar entre 15 y 700 kg";
+                return;
+            }
+
+            // Aquí el cálculo
+            let imc = peso / (altura ** 2);
+            imc = imc.toFixed(2);
+            return imc;
+        }
+
+        function interpretacion() {
+            let imc = calcularImc();
+            let resultado;
+
+            if (!imc) {
+                cerrarInterpretacion();
+                return;
+            }
+
+            switch (true) {
+                case (imc < 18.5):
+                    resultado = "se encuentra dentro del rango de peso bajo";
+                    break;
+                case (imc >= 18.5 && imc < 25):
+                    resultado = "se encuentra dentro del rango de peso normal o saludable";
+                    break;
+                case (imc >= 25.0 && imc < 30):
+                    resultado = "se encuentra dentro del rango de sobrepeso. ";
+                    break;
+                case (imc >= 30 && imc < 35):
+                    resultado = "se encuentra dentro del rango de obesidad I";
+                    break;
+                case (imc >= 35 && imc < 40):
+                    resultado = "se encuentra dentro del rango de obesidad II. ";
+                    break;
+                default:
+                    resultado = "se encuentra dentro del rango de obesidad III.";
+                    break;
+            }
+
+            let cajonInterpretacion = document.getElementById("cajaInterpretacion");
+            let cajonMostrarImc = document.getElementById("mostrarImc");
+            cajonInterpretacion.textContent = resultado;
+            cajonMostrarImc.textContent = "Su IMC es de: " + imc;
+
+            interpretacionCajon.classList.remove("noMostrar");
+        }
+
+        function cerrarInterpretacion() {
+            interpretacionCajon.classList.add("noMostrar");
+        }
+    </script>
+</body>
 
 </html>
