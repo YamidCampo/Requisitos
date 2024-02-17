@@ -14,20 +14,24 @@
 </head>
 
 <body>
-    <div class="calculo">
+    <div class="container">
         <h1>Calcula tu IMC!</h1>
         <div class="formulario">
-            <p>Ingresa tu altura en metros: </p>
-            <input min="0.8" max="3" id="alturaUsuario" type="number" placeholder="Tu altura aqui">
-            <p>Ingresa tu peso en kilogramos</p>
-            <input min="15" max="700" id="pesoUsuario" type="number" placeholder="Tu peso aqui">
+            <div class="altura input-group">
+                <label for="alturaUsuario">Ingresa tu altura en metros: </label>
+                <input min="0.8" max="3" id="alturaUsuario" type="number" placeholder="Tu altura aqui">
+            </div>
+            <div class="peso input-group">
+                <label for="pesoUsuario">Ingresa tu peso en kilogramos</label>
+                <input min="15" max="700" id="pesoUsuario" type="number" placeholder="Tu peso aqui">
+            </div>
             <button onclick="intepretacion()">Calcular!</button>
         </div>
         <div id="interpretacion" class="interpretacion">
             <span class="cerrarInterpretacion" onclick="cerrarInterpretacion()">X</span>
             <h2>Aca su interpretación!</h2>
             <span id="mostrarImc"></span>
-            <span id="cajaInterpretacion">hola</span>
+            <span id="cajaInterpretacion"></span>
         </div>
 
     </div>
