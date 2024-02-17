@@ -7,22 +7,27 @@ function calcularImc(){
     let peso = parseFloat(document.getElementById("pesoUsuario").value)
     console.log(peso)
 
+    const elementErrorAltura = document.getElementById('errorAlturaUsuario')
+    const elementErrorPeso = document.getElementById('errorPesoUsuario')
 
-    if (isNaN(altura) || isNaN(peso)){
-        alert("Debes introducir todos los parametros")
-        return
+    elementErrorAltura.textContent = ''
+    elementErrorPeso.textContent = ''
+
+    if (isNaN(altura)){
+      elementErrorAltura.textContent = 'Debes ingresar la altura'
+      return
     }
-    if (altura <= 0){
-        alert("La altura introducida es invalida")
-        return
+    if(isNaN(peso)) {
+      elementErrorPeso.textContent = 'Debes ingresar el peso'
+      return
     }
-    if (altura <= 0.8 || altura >= 3){
-        alert("Para este rango de altura, el IMC no es interpretable")
+    if (altura < 0.8 || altura > 3){
+      elementErrorAltura.textContent = "La altura debe estar entre 0.8 y 3 metros"
         return
     }   
-    if (peso <= 15 || peso >= 700){
-        alert("El peso introducido es invalido")
-        return
+    if (peso < 15 || peso > 700){
+      elementErrorPeso.textContent = "El peso debe estar entre 15 y 700 kg"
+      return
     }
 
     // Aqui el calculo
@@ -35,6 +40,11 @@ function calcularImc(){
 function intepretacion(){
     let imc = calcularImc()
     let resultado;
+
+    if(!imc) {
+      cerrarInterpretacion()
+      return
+    }
 
     switch (true) {
         case (imc < 18.5):
@@ -55,14 +65,14 @@ function intepretacion(){
         default:
           resultado = "se encuentra dentro del rango de obesidad III.";
           break;
-      }
+    }
 
-      let cajonInterpretacion = document.getElementById("cajaInterpretacion")
-      let cajonMostrarImc = document.getElementById("mostrarImc")
-      cajonInterpretacion.textContent = resultado
-      cajonMostrarImc.textContent = "Su IMC es de: " + imc
+    let cajonInterpretacion = document.getElementById("cajaInterpretacion")
+    let cajonMostrarImc = document.getElementById("mostrarImc")
+    cajonInterpretacion.textContent = resultado
+    cajonMostrarImc.textContent = "Su IMC es de: " + imc
 
-      interpretacionCajon.classList.remove("noMostrar")
+    interpretacionCajon.classList.remove("noMostrar")
 }
 
 
