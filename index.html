@@ -4,15 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>IMC</title>
 </head>
 
 <body>
     <div class="calculo">
         <h1>Calcula tu IMC!</h1>
-        <p id="">Ingresa tu altura en metros: </p>
-        <input type="text" placeholder="Tu altura aqui">
+        <p>Ingresa tu altura en metros: </p>
+        <input id="alturaUsuario" type="number" placeholder="Tu altura aqui">
+        <p>Ingresa tu peso en kilogramos</p>
+        <input id="pesoUsuario" type="number" placeholder="Tu peso aqui">
+        <button onclick="calcularImc()">Calcular!</button>
     </div>
 </body>
+
+<script src="script.js"></script>
 
 </html>
