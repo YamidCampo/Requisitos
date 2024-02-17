@@ -1,10 +1,54 @@
 
 function calcularImc(){
-    let altura = document.getElementById("alturaUsuario").value
-    let peso = document.getElementById("pesoUsuario").value
-    console.log(altura, peso)
+    let altura = parseFloat(document.getElementById("alturaUsuario").value)
+    let peso = parseFloat(document.getElementById("pesoUsuario").value)
+    console.log(peso)
+
+
+    if (isNaN(altura) || isNaN(peso)){
+        alert("Debes introducir todos los parametros")
+        return
+    }
+    if (altura <= 0){
+        alert("La altura introducida es invalida")
+        return
+    }
+    if (altura <= 0.8 || altura >= 3){
+        alert("Para este rango de altura, el IMC no es interpretable")
+        return
+    }   
+    if (peso <= 15 || peso >= 700){
+        alert("El peso introducido es invalido")
+        return
+    }
 
     // Aqui el calculo
     let imc = peso / altura**2
-    console.log(imc)
+    return imc
+
+}
+
+function intepretacion(){
+    let imc = calcularImc()
+    let resultado;
+
+    switch (true) {
+        case (imc < 18.5):
+           resultado = "se encuentra dentro del rango de peso bajo"; 
+           break
+        case (imc >= 18.5 && imc < 25):
+          resultado = "se encuentra dentro del rango de peso normal o saludable";
+          break;
+        case (imc >= 25.0 && imc < 30):
+          resultado = "se encuentra dentro del rango de sobrepeso. ";
+          break;
+        default:
+          resultado = "se encuentra dentro del rango de obesidad.";
+          break;
+      }
+
+      let cajonInterpretacion = document.getElementById("cajaInterpretacion")
+      let cajonMostrarImc = document.getElementById("mostrarImc")
+      cajonInterpretacion.textContent = resultado
+      cajonMostrarImc.textContent = "Su IMC es de: " + imc
 }
