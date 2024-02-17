@@ -1,9 +1,21 @@
 let interpretacionCajon = document.getElementById("interpretacionDiv");
 interpretacionCajon.classList.add("noMostrar");
 
+// Función que llama a calcularImc() e interpretacion()
+function procesarCalculoImc() {
+    calcularImc();
+    interpretacion();
+}
+
+// Agregar event listener al botón de calcular
+document.getElementById("botonCalcular").addEventListener("click", procesarCalculoImc);
+
+// Agregar event listener al documento para escuchar el evento de presionar una tecla
 document.addEventListener("keydown", function(event) {
-    if (event.key === 'Enter') {
-        interpretacion();
+    // Verificar si la tecla presionada es Enter
+    if (event.keyCode === 13) {
+        // Llamar a la función procesarCalculoImc() cuando se presiona Enter
+        procesarCalculoImc();
     }
 });
 
