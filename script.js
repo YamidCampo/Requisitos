@@ -1,3 +1,6 @@
+let interpretacionCajon = document.getElementById("interpretacion")
+interpretacionCajon.classList.add("noMostrar")
+
 
 function calcularImc(){
     let altura = parseFloat(document.getElementById("alturaUsuario").value)
@@ -57,4 +60,11 @@ function intepretacion(){
       let cajonMostrarImc = document.getElementById("mostrarImc")
       cajonInterpretacion.textContent = resultado
       cajonMostrarImc.textContent = "Su IMC es de: " + imc
+
+      interpretacionCajon.classList.remove("noMostrar")
+}
+
+
+function cerrarInterpretacion(){
+  interpretacionCajon.classList.add("noMostrar")
 }

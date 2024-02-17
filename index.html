@@ -23,7 +23,8 @@
             <input min="15" max="700" id="pesoUsuario" type="number" placeholder="Tu peso aqui">
             <button onclick="intepretacion()">Calcular!</button>
         </div>
-        <div class="interpretacion">
+        <div id="interpretacion" class="interpretacion">
+            <span class="cerrarInterpretacion" onclick="cerrarInterpretacion()">X</span>
             <h2>Aca su interpretación!</h2>
             <span id="mostrarImc"></span>
             <span id="cajaInterpretacion">hola</span>
