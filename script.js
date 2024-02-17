@@ -26,7 +26,8 @@ function calcularImc(){
     }
 
     // Aqui el calculo
-    let imc = peso / altura**2
+    let imc = peso / (altura**2);
+    imc= imc.toFixed(2);
     return imc
 
 }
