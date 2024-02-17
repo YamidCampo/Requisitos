@@ -2,7 +2,7 @@ let interpretacionCajon = document.getElementById("interpretacionDiv");
 interpretacionCajon.classList.add("noMostrar");
 
 document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 13) {
+    if (event.key === 'Enter') {
         interpretacion();
     }
 });
