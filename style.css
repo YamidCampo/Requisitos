@@ -64,3 +64,58 @@ button:hover {
 .noMostrar {
     display: none;
 }
+
+/* INTERPRETACION */
+.interpretacion {
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    background-color:darkgray;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 80%;
+}
+
+.headerIntertretacion {
+
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.headerIntertretacion h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.headerIntertretacion .cerrarInterpretacion {
+    cursor: pointer;
+    color: #999;
+    font-size: 1.2em;
+}
+
+.headerIntertretacion .cerrarInterpretacion:hover {
+    color: #f00;
+}
+
+#mostrarImc,
+#cajaInterpretacion {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#mostrarImc {
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    .interpretacion {
+        max-width: 90%;
+    }
+}
+

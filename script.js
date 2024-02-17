@@ -1,4 +1,4 @@
-let interpretacionCajon = document.getElementById("interpretacion")
+let interpretacionCajon = document.getElementById("interpretacionDiv")
 interpretacionCajon.classList.add("noMostrar")
 
 
