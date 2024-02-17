@@ -21,10 +21,12 @@
             <div class="altura input-group">
                 <label for="alturaUsuario">Ingresa tu altura en metros: </label>
                 <input min="0.8" max="3" id="alturaUsuario" type="number" placeholder="Tu altura aqui">
+                <p id="errorAlturaUsuario" class="errorAlturaUsuario"></p>
             </div>
             <div class="peso input-group">
                 <label for="pesoUsuario">Ingresa tu peso en kilogramos</label>
                 <input min="15" max="700" id="pesoUsuario" type="number" placeholder="Tu peso aqui">
+                <p id="errorPesoUsuario" class="errorPesoUsuario"></p>
             </div>
             <button onclick="intepretacion()">Calcular!</button>
         </div>
