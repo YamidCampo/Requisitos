@@ -99,20 +99,24 @@ button:hover {
     background-color: green;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; 
     margin-bottom: 10px;
+    
 }
 
 .headerIntertretacion h2 {
     margin: 0;
+    display: flex;
     font-size: 1.2em;
     color: #333;
+    justify-content: center;
 }
 
 .headerIntertretacion .cerrarInterpretacion {
     cursor: pointer;
     color: #999;
     font-size: 1.2em;
+    
 }
 
 .headerIntertretacion .cerrarInterpretacion:hover {
@@ -124,6 +128,7 @@ button:hover {
     display: block;
     margin-bottom: 10px;
     color: #333;
+
 }
 
 #mostrarImc {
@@ -163,4 +168,31 @@ button:hover {
 
 .sinFondo{
     background-color:darkgray;
+}
+
+#tablaIMC {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tablaIMC caption {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#tablaIMC th,
+#tablaIMC td {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: center;
+}
+
+#tablaIMC th {
+    background-color: #007bff;
+    color: white;
+}
+
+#tablaIMC tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
