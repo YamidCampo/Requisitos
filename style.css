@@ -135,3 +135,32 @@ button:hover {
         max-width: 90%;
     }
 }
+
+.fondoVerde{
+    background-color: green;
+}
+
+.fondoAzul{
+    background-color: blue;
+}
+
+
+.fondoNaranja{
+    background-color: orange;
+}
+
+.fondoRojo{
+    background-color: red;
+}
+
+.fondoRosado{
+    background-color: pink;
+}
+
+.fondoMorado{
+    background-color: blueviolet;
+}
+
+.sinFondo{
+    background-color:darkgray;
+}
