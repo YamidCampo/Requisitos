@@ -1,8 +1,11 @@
 let interpretacionCajon = document.getElementById("interpretacionDiv")
+let divHeaderIntertretacion = document.getElementById("headerIntertretacion")
 interpretacionCajon.classList.add("noMostrar")
 
 
 function calcularImc(){
+  divHeaderIntertretacion.className = '';
+  divHeaderIntertretacion.classList.add("headerIntertretacion")
     let altura = parseFloat(document.getElementById("alturaUsuario").value)
     let peso = parseFloat(document.getElementById("pesoUsuario").value)
     console.log(peso)
@@ -47,24 +50,30 @@ function intepretacion(){
     }
 
     switch (true) {
-        case (imc < 18.5):
-           resultado = "se encuentra dentro del rango de peso bajo"; 
-           break
-        case (imc >= 18.5 && imc < 25):
-          resultado = "se encuentra dentro del rango de peso normal o saludable";
-          break;
-        case (imc >= 25.0 && imc < 30):
-          resultado = "se encuentra dentro del rango de sobrepeso. ";
-          break;
-        case (imc >= 30 && imc < 35):
-          resultado = "se encuentra dentro del rango de obesidad I";
-          break;
-        case (imc >= 35 && imc < 40):
-          resultado = "se encuentra dentro del rango de obesidad II. ";
-          break;
-        default:
-          resultado = "se encuentra dentro del rango de obesidad III.";
-          break;
+      case (imc < 18.5):
+         resultado = "Se encuentra dentro del rango de peso bajo"; 
+         divHeaderIntertretacion.classList.add("fondoAzul")
+         break
+      case (imc >= 18.5 && imc < 25):
+        resultado = "Se encuentra dentro del rango de peso normal o saludable";
+        divHeaderIntertretacion.classList.add("fondoVerde")
+        break;
+      case (imc >= 25.0 && imc < 30):
+        resultado = "Se encuentra dentro del rango de sobrepeso. ";
+        divHeaderIntertretacion.classList.add("fondoNaranja")
+        break;
+      case (imc >= 30 && imc < 35):
+        resultado = "Se encuentra dentro del rango de obesidad I";
+        divHeaderIntertretacion.classList.add("fondoRojo")
+        break;
+      case (imc >= 35 && imc < 40):
+        resultado = "Se encuentra dentro del rango de obesidad II. ";
+        divHeaderIntertretacion.classList.add("fondoRosado")
+        break;
+      default:
+        resultado = "se encuentra dentro del rango de obesidad III.";
+        divHeaderIntertretacion.classList.add("fondoMorado")
+        break;
     }
 
     let cajonInterpretacion = document.getElementById("cajaInterpretacion")

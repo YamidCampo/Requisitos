@@ -2,44 +2,82 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="icon" href="img/iconoH.png" type="image/x-icon">
-    <title>IMC</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="img/iconoH.png" type="image/x-icon">
+  <title>IMC</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Calcula tu IMC!</h1>
-        <div class="formulario">
-            <div class="altura input-group">
-                <label for="alturaUsuario">Ingresa tu altura en metros: </label>
-                <input min="0.8" max="3" id="alturaUsuario" type="number" placeholder="Tu altura aqui">
-                <p id="errorAlturaUsuario" class="errorAlturaUsuario"></p>
-            </div>
-            <div class="peso input-group">
-                <label for="pesoUsuario">Ingresa tu peso en kilogramos</label>
-                <input min="15" max="700" id="pesoUsuario" type="number" placeholder="Tu peso aqui">
-                <p id="errorPesoUsuario" class="errorPesoUsuario"></p>
-            </div>
-            <button onclick="intepretacion()">Calcular!</button>
-        </div>
-        <div id="interpretacionDiv" class="interpretacion">
-            <div class="headerIntertretacion">
-                <h2>Aca su interpretación!</h2>
-                <p class="cerrarInterpretacion" onclick="cerrarInterpretacion()">X</p>
-            </div>
-            <span id="mostrarImc"></span>
-            <span id="cajaInterpretacion"></span>
-        </div>
+  <div class="container">
+    <h1>Calcula tu IMC!</h1>
+    <div class="formulario">
+      <div class="altura input-group">
+        <label for="alturaUsuario">Ingresa tu altura en metros: </label>
+        <input min="0.8" max="3" id="alturaUsuario" type="number" placeholder="Tu altura aqui">
+        <p id="errorAlturaUsuario" class="errorAlturaUsuario"></p>
+      </div>
+      <div class="peso input-group">
+        <label for="pesoUsuario">Ingresa tu peso en kilogramos</label>
+        <input min="15" max="700" id="pesoUsuario" type="number" placeholder="Tu peso aqui">
+        <p id="errorPesoUsuario" class="errorPesoUsuario"></p>
+      </div>
+      <button onclick="intepretacion()">Calcular!</button>
+    </div>
+    <div id="interpretacionDiv" class="interpretacion">
+      <div id="headerIntertretacion" class="headerIntertretacion">
+        <h2>Aca su interpretación!</h2>
+        <p class="cerrarInterpretacion" onclick="cerrarInterpretacion()">X</p>
+      </div>
+      <div class="cuerpoInterpretacion">
+        <span id="mostrarImc"></span>
+        <span id="cajaInterpretacion"></span>
+      </div>
 
     </div>
+    <table id="tablaIMC">
+      <thead>
+        <tr>
+          <th>ÍNDICE MASA CORPORAL</th>
+          <th>CLASIFICACIÓN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <18.5 </td>
+          <td>Bajo peso</td>
+        </tr>
+        <tr>
+          <td>18.50 - 24.99</td>
+          <td>Saludable</td>
+        </tr>
+        <tr>
+          <td>25.00 - 29.99</td>
+          <td>Sobrepeso</td>
+        </tr>
+        <tr>
+          <td>30.00 - 34.99</td>
+          <td>Obesidad: Tipo I</td>
+        </tr>
+        <tr>
+          <td>35.00 - 39.99</td>
+          <td>Obesidad: Tipo II</td>
+        </tr>
+        <tr>
+          <td>>=40.00</td>
+          <td>Obesidad: Tipo III</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
 </body>
 
 <script src="script.js"></script>
