@@ -1,22 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMC Login!</title>
-</head>
+    <form action="javascript:login()" class="formulario">
+      <div class="input-group">
+        <label for="cedula">Cédula</label>
+        <input
+          id="cedula"
+          placeholder="Ingrese su cédula"
+          name="cedula"
+          class="formInput"
+        />
+        <p id="errorCedula" class="errorInput"></p>
+      </div>
+      <div id="nombreDiv" class="input-group noMostrar">
+        <label for="nombre">Nombre</label>
+        <input
+          id="nombre"
+          placeholder="Ingrese su nombre"
+          name="nombre"
+          class="formInput"
+        />
+        <p id="errorNombre" class="errorInput"></p>
+      </div>
+      <div id="passwordDiv" class="input-group noMostrar">
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Contraseña"
+          name="password"
+          class="formInput"
+        />
+        <p id="errorPassword" class="errorInput"></p>
+      </div>
+      <button id="botonContinuar" onclick="continuarFormulario(event)" class="primaryButton">Continuar</button>
+      <div id="botonesLoginDiv" class="noMostrar">
+        <button id="botonReiniciar" onclick="reiniciarFormulario(event)" class="secondaryButton">Cancelar</button>
+        <button id="botonLogin" type="submit" class="primaryButton">Iniciar sesión</button>
+      </div>
+    </form>
 
-<!-- 
-    TODO: HACER UN LOGIN, QUE RECIBA EL USUARIO Y LA CONTRASEÑA, Y QUE ESTOS DATOS SE GUARDEN EN EL 
-    LOCALSTORAGE PARA LUEGO USARLO EN LA CELDA DE INTERPETACIÓN. PREVENIR TODOS LOS CASOS DE ERROR 
-    POSIBLES
- -->
-
-<body>
-
-    <button><a href="http://127.0.0.1:5500/index.html" class="button">Entrar</a></button>
-
-</body>
-
-</html>

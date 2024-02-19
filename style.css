@@ -39,36 +39,54 @@ label {
     display: block;
     margin-bottom: 5px;
     width: 100%;
+    font-weight: 800;
 }
 
-input[type="number"],
-button {
+.formInput {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+
+.primaryButton {
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
-}
-
-button {
-    background-color: #007bff;
+    background-color: #4ac3de;
     color: white;
-    border: none;
+    border: 1px solid #ced4da; /* Borde del botón */
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+.primaryButton:hover {
+    background-color: #2099b4;
 }
 
-.errorAlturaUsuario {
+.secondaryButton {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #a1b1b5;
+    color: white;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondaryButton:hover {
+    background-color: #666e70;
+    color: white;
+}
+
+
+.errorInput {
     color: red;
     margin: 0px;
     font-size: 16px;
-}
-
-.errorPesoUsuario{
-    color: red;
-    margin: 0px;
-    font-size: 16px;
+    font-weight: 600;
 }
 
 .navbar {
@@ -101,7 +119,22 @@ button:hover {
 }
 
 .navbar-link.activo {
-    color: #3F48CC; /* Estilo para el enlace activo */
+    color: #5e68ea; /* Estilo para el enlace activo */
+    font-weight: 900;
+}
+
+.navbar-logout {
+    margin-right: 15px;
+}
+
+.botonesLoginDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.botonesLoginDiv > button {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* Regla de medios para pantallas más grandes */

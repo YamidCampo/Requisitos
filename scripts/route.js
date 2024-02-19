@@ -1,11 +1,36 @@
+const urlRutas = {
+	"/": {
+		idContenido: "loginDiv",
+		template: "/login.html",
+		title: "login | IMC",
+        script: "/scripts/login.js"
+	},
+	calcularImc: {
+		idContenido: "calcularImcDiv",
+		template: "/calcularImc.html",
+		title: "Calculadora | IMC",
+        script: "/scripts/script.js"
+	},
+	historial: {
+		idContenido: "historialDiv",
+		template: "/historial.html",
+		title: "Historial | IMC",
+        script: "/scripts/historial.js"
+	},
+};
 
-// carga dinamicamente un script en la pagina web
+// devuelve la variable usuario del localStorage
+const usuarioEstaRegistrado = () => {
+	return localStorage.getItem('usuario')
+} 
+
+// carga un script js en la pagina
 const cargarScript = (scriptSrc) => {
-    
-    if (!document.querySelector(`script[src="${scriptSrc}"]`)) {
+	// Validar que el script no esté cargado aún
+	if (!document.querySelector(`script[src="${scriptSrc}"]`)) {
         const script = document.createElement('script');
         script.src = scriptSrc;
-        document.head.appendChild(script);
+		document.getElementById("miScripts").appendChild(script);
     }
 }
 
@@ -13,10 +38,9 @@ const cargarScript = (scriptSrc) => {
 const cambiarEstiloEnlaces = () => {
     const rutaActual = window.location.hash;
     const enlaces = document.querySelectorAll('.navbar-link');
-    console.log(rutaActual)
+
     // Iterar sobre los enlaces y comparar la ruta actual con la ruta del enlace
     enlaces.forEach(enlace => {
-        console.log(enlace.pathname)
         if (enlace.hash === rutaActual) {
             enlace.classList.add('activo'); // Agregar clase 'active' al enlace activo
         } else {
@@ -25,49 +49,68 @@ const cambiarEstiloEnlaces = () => {
     });
 }
 
+// ocultado todos los elementos del content
+const ocultarContenido = () => {
+	const content = document.getElementById('content');
 
-const urlRutas = {
-	404: {
-		template: "/templates/404.html",
-		title: "404 | IMC",
-	},
-	"/": {
-		template: "/calcularImc.html",
-		title: "Calculadora | IMC",
-        script: "/scripts/script.js"
-	},
-	historial: {
-		template: "/historial.html",
-		title: "Historial | IMC",
-	},
-};
+	// Obtiene todos los hijos
+	const hijos = content.children;
+	// Recorre todos los hijos para ocultarlos
+	for (var i = 0; i < hijos.length; i++) {
+		// Agrega la clase deseada a los hermanos
+		hijos[i].classList.add('noMostrar');
+	}
+}
 
 // Esta función maneja la ubicación de la URL y actualiza dinámicamente el contenido de la página y su título.
 const locationHandler = async() => {
 	var location = window.location.hash.replace("#", ""); // obtener url hash
-    console.log(location)
+	const usuarioRegistrado = usuarioEstaRegistrado()
+	
 	if (location.length == 0) {
 		location = "/";
+		if(usuarioRegistrado){ // si el usuario está registrado enviarlo a la pagina de calcular IMC
+			window.location.hash = '#calcularImc'
+			return
+		}
+	} else if((location == 'calcularImc' || location === 'historial') && !usuarioRegistrado) {
+		window.location.hash = '/'
+		return
 	}
+
     
 	// obtener datos de url desde el objeto de rutas
 	const route = urlRutas[location] || urlRutas["404"];
-	// obtener template html
-	const html = await fetch(route.template).then((response) => response.text());
-	// establece el html en el content de la pagina
-	document.getElementById("content").innerHTML = html;
+	ocultarContenido()
+	// eliminar clase que oculta el elemento
+	document.getElementById(route.idContenido).classList.remove('noMostrar');
 
 	// establece el titulo de la pagina
 	document.title = route.title;
 
     // si la ruta tiene un script propio entonces cargarlo en la pagina
-    route.script && cargarScript(route.script)
+    route.script
     cambiarEstiloEnlaces()
 };
 
-
-
-// create a function that watches the hash and calls the urlLocationHandler
+// llama la funcion locationHandler cada que el hash cambia
 window.addEventListener("hashchange", locationHandler);
-// call the urlLocationHandler to load the page
+// llamar locationHandler al cargar la pagina
 locationHandler();
+
+
+
+// events
+document.addEventListener("DOMContentLoaded",async function() {
+	for (let ruta in urlRutas) {
+		if (urlRutas.hasOwnProperty(ruta)) {
+			const html = await fetch(urlRutas[ruta].template).then((response) => response.text());
+			// establece el html en el content de la pagina
+			document.getElementById(urlRutas[ruta].idContenido).innerHTML = html;
+
+			
+			cargarScript(urlRutas[ruta].script);
+		}
+	}
+
+});
