@@ -98,6 +98,10 @@ window.addEventListener("hashchange", locationHandler);
 // llamar locationHandler al cargar la pagina
 locationHandler();
 
+const cerrarSesion = () => {
+	localStorage.removeItem('usuario')
+	window.location.hash = '/'
+}
 
 
 // events

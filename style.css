@@ -48,14 +48,13 @@ label {
     box-sizing: border-box; 
 }
 
-
 .primaryButton {
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
     background-color: #4ac3de;
     color: white;
-    border: 1px solid #ced4da; /* Borde del botón */
+    border: 1px solid #ced4da;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -119,12 +118,47 @@ label {
 }
 
 .navbar-link.activo {
-    color: #5e68ea; /* Estilo para el enlace activo */
+    color: #5e68ea;
     font-weight: 900;
 }
 
 .navbar-logout {
     margin-right: 15px;
+}
+
+.separador {
+    flex-grow: 1;
+    height: 0; 
+}
+
+.icono-cerrar-sesion {
+    background-image: url('img/logout_black_24dp.svg');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;  
+    width: 24px;
+    height: 24px; 
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.icono-cerrar-sesion:hover {
+    background-color: #5e68ea;
+}
+.mensaje-cerrar-sesion {
+    display: none;
+    float: left;
+    color: #fff;
+    padding: 4px 8px; 
+    font-size: 14px; 
+}
+
+.icono-cerrar-sesion:hover + .mensaje-cerrar-sesion {
+    display: block; 
 }
 
 .botonesLoginDiv {
