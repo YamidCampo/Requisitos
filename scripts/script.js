@@ -89,21 +89,19 @@ function cerrarInterpretacion(){
   interpretacionCajon.classList.add("noMostrar")
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    var alturaInput = document.getElementById("alturaUsuario");
-    var pesoInput = document.getElementById("pesoUsuario");
+var alturaInput = document.getElementById("alturaUsuario");
+var pesoInput = document.getElementById("pesoUsuario");
 
-    alturaInput.addEventListener("keyup", function (event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            intepretacion();
-        }
-    });
+alturaInput.addEventListener("keyup", function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        intepretacion();
+    }
+});
 
-    pesoInput.addEventListener("keyup", function (event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            intepretacion();
-        }
-    });
+pesoInput.addEventListener("keyup", function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        intepretacion();
+    }
 });
