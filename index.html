@@ -15,71 +15,23 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>Calcula tu IMC!</h1>
-    <div class="formulario">
-      <div class="altura input-group">
-        <label for="alturaUsuario">Ingresa tu altura en metros: </label>
-        <input min="0.8" max="3" id="alturaUsuario" type="number" placeholder="Tu altura aqui">
-        <p id="errorAlturaUsuario" class="errorAlturaUsuario"></p>
-      </div>
-      <div class="peso input-group">
-        <label for="pesoUsuario">Ingresa tu peso en kilogramos</label>
-        <input min="15" max="700" id="pesoUsuario" type="number" placeholder="Tu peso aqui">
-        <p id="errorPesoUsuario" class="errorPesoUsuario"></p>
-      </div>
-      <button onclick="intepretacion()">Calcular!</button>
-    </div>
-    <div id="interpretacionDiv" class="interpretacion">
-      <div id="headerIntertretacion" class="headerIntertretacion">
-        <h2>Aca su interpretación!</h2>
-        <p class="cerrarInterpretacion" onclick="cerrarInterpretacion()">X</p>
-      </div>
-      <div class="cuerpoInterpretacion">
-        <span id="mostrarImc"></span>
-        <span id="cajaInterpretacion"></span>
-      </div>
 
-    </div>
-    <table id="tablaIMC">
-      <thead>
-        <tr>
-          <th>ÍNDICE MASA CORPORAL</th>
-          <th>CLASIFICACIÓN</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <18.5 </td>
-          <td>Bajo peso</td>
-        </tr>
-        <tr>
-          <td>18.50 - 24.99</td>
-          <td>Saludable</td>
-        </tr>
-        <tr>
-          <td>25.00 - 29.99</td>
-          <td>Sobrepeso</td>
-        </tr>
-        <tr>
-          <td>30.00 - 34.99</td>
-          <td>Obesidad: Tipo I</td>
-        </tr>
-        <tr>
-          <td>35.00 - 39.99</td>
-          <td>Obesidad: Tipo II</td>
-        </tr>
-        <tr>
-          <td>>=40.00</td>
-          <td>Obesidad: Tipo III</td>
-        </tr>
-      </tbody>
-    </table>
+  <nav class="navbar">
+      <div class="navbar-brand">
+          <span class="navbar-title">IMC</span>
+      </div>
+      <div class="navbar-links">
+          <a href="/" class="navbar-link">Calcular IMC</a>
+          <a href="#historial" class="navbar-link">historial</a>
+      </div>
+  </nav>
+
+  <div class="container" id="content">
+    
 
   </div>
 </body>
 
-<script src="script.js"></script>
+<script src="scripts/route.js"></script>
 
 </html>

@@ -7,6 +7,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0px;
 }
 
 .noMostrar{
@@ -14,7 +15,7 @@ body {
 }
 
 .container {
-    width: 30%; /* Cambiado para que el contenedor sea del 100% del ancho */ /* Ancho máximo para evitar que sea demasiado ancho en pantallas grandes */
+    width: 50%; /* Cambiado para que el contenedor sea del 100% del ancho */ /* Ancho máximo para evitar que sea demasiado ancho en pantallas grandes */
     margin: 50px auto;
     text-align: center;
 }
@@ -68,6 +69,39 @@ button:hover {
     color: red;
     margin: 0px;
     font-size: 16px;
+}
+
+.navbar {
+    background-color: #85B5C9;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    margin-left: 15px;
+}
+
+.navbar-links {
+    display: flex;
+    margin-right: 15px;
+}
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar-link:hover {
+    text-decoration: underline;
+}
+
+.navbar-link.activo {
+    color: #3F48CC; /* Estilo para el enlace activo */
 }
 
 /* Regla de medios para pantallas más grandes */

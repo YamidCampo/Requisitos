@@ -1,7 +1,5 @@
 let interpretacionCajon = document.getElementById("interpretacionDiv")
 let divHeaderIntertretacion = document.getElementById("headerIntertretacion")
-interpretacionCajon.classList.add("noMostrar")
-
 
 function calcularImc(){
   divHeaderIntertretacion.className = '';
@@ -80,7 +78,6 @@ function intepretacion(){
     let cajonMostrarImc = document.getElementById("mostrarImc")
     cajonInterpretacion.textContent = resultado
     cajonMostrarImc.textContent = "Su IMC es de: " + imc
-
     interpretacionCajon.classList.remove("noMostrar")
 }
 
