@@ -36,6 +36,10 @@ function calcularImc(){
     // Aqui el calculo
     let imc = peso / (altura**2);
     imc= imc.toFixed(2);
+
+    
+    guardarHistorial(validarFormularioLogin(),imc)
+
     return imc
 
 }

@@ -128,6 +128,8 @@ const login = () => {
     // guardar usuario en el localStorage
     guardarUsuario(formData);
 
+    window.cedulaH = cedulaInput.value;
+
     window.location.hash = '#calcularImc'
 }
 
