@@ -87,6 +87,8 @@ function intepretacion(){
     cajonMostrarImc.textContent = "Su IMC es de: " + imc
 
     interpretacionCajon.classList.remove("noMostrar")
+    alturaInput.value = ''
+    pesoInput.value = ''
 }
 
 
