@@ -35,11 +35,12 @@ const crearHistorial= () =>{
     const usuario = usuarios[cedula];
     console.log(usuario)
     if(usuario) { 
-        listaCalculos = usuarios[cedula].calculos;
+        listaCalculos = usuarios[cedula].calculos || [];
         console.log(listaCalculos)
         return listaCalculos;
-        };
-    }
+    };
+    return []
+}
 
 const crearTabla = () => {
     let Tabla = function(lista) {
