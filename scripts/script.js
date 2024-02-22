@@ -38,7 +38,8 @@ function calcularImc(){
     imc= imc.toFixed(2);
 
     
-    guardarHistorial(validarFormularioLogin(),imc)
+    guardarHistorial(validarFormularioLogin(),imc, )
+
 
     return imc
 
