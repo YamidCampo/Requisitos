@@ -1,6 +1,6 @@
 const guardarHistorial = (formData, imcCalculado) => {
 
-    let cedula = window.cedulaH;
+    let cedula = localStorage.getItem('usuario');
 
     // Obtener los datos almacenados en el localStorage
     const usuariosGuardados = localStorage.getItem('usuarios');
@@ -24,7 +24,7 @@ const guardarHistorial = (formData, imcCalculado) => {
 
 const crearHistorial= () =>{
 
-    let cedula = window.cedulaH;
+    let cedula = localStorage.getItem('usuario');
 
     // Obtener los datos almacenados en el localStorage
     const usuariosGuardados = localStorage.getItem('usuarios');
@@ -33,7 +33,7 @@ const crearHistorial= () =>{
     const usuarios = JSON.parse(usuariosGuardados);
 
     const usuario = usuarios[cedula];
-
+    console.log(usuario)
     if(usuario) { 
         listaCalculos = usuarios[cedula].calculos;
         console.log(listaCalculos)
@@ -43,6 +43,7 @@ const crearHistorial= () =>{
 
 const crearTabla = () => {
     let Tabla = function(lista) {
+        console.log(lista)
         let stringTabla = "<tr><th>IMC</th><th>Fecha Cálculo</th></tr>"
         for (let imc of lista){
             let fila = "<tr> <td>"
@@ -59,6 +60,8 @@ const crearTabla = () => {
         return stringTabla;
     }
     
-    document.getElementById("tablaIMC").innerHTML = Tabla(crearHistorial());
+    document.getElementById("tablaHistorial").innerHTML = Tabla(crearHistorial());
 }
+
+crearTabla()
 
