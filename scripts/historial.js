@@ -39,33 +39,31 @@ const crearHistorial= () =>{
     const usuario = usuarios[cedula];
     console.log(usuario)
     if(usuario) { 
-        listaCalculos = usuarios[cedula].calculos;
+        listaCalculos = usuarios[cedula].calculos || [];
         console.log(listaCalculos)
         return listaCalculos;
-        };
-    }
+    };
+    return []
+}
 
 const crearTabla = () => {
 
-    let Tabla = function(lista) {
-        console.log(lista)
-        let stringTabla = "<tr><th>IMC</th><th>Fecha Cálculo</th></tr>"
-        for (let imc of lista){
-            let fila = "<tr> <td>"
-            fila+= imc[0]
-            fila+="</td>"
+    const lista = crearHistorial()
     
-            fila+="<td>"
-            fila+=imc[1]
-            fila+="</td>"
-    
-            stringTabla+=fila
-    
-        }
-        return stringTabla;
+    let stringTabla = "<tr><th>IMC</th><th>Fecha Cálculo</th></tr>"
+    for (let imc of lista){
+        let fila = "<tr> <td>"
+        fila+= imc[0]
+        fila+="</td>"
+
+        fila+="<td>"
+        fila+=imc[1]
+        fila+="</td>"
+
+        stringTabla+=fila
+
     }
-    
-    document.getElementById("tablaHistorial").innerHTML = Tabla(crearHistorial());
+    document.getElementById("tablaHistorial").innerHTML = stringTabla;
 }
 
 const reiniciarHistorial = () => {

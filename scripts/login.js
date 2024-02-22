@@ -78,7 +78,7 @@ const guardarUsuario = (formData) => {
         if(usuario) { 
             if((usuario.password !== formData[cedula].password)){
                 errorPassword.textContent = 'La contraseña no coincide'
-                return;
+                return false;
             } else {
                 formData[cedula] = usuario
             }
@@ -90,6 +90,7 @@ const guardarUsuario = (formData) => {
     localStorage.setItem('usuarios', JSON.stringify(newUsuarios))
 
     localStorage.setItem("usuario", cedula)
+    return true;
 }
 
 const continuarFormulario = (event) => {
@@ -112,8 +113,12 @@ const continuarFormulario = (event) => {
     // ocultar boton de continuar
     botonContinuar.classList.add('noMostrar')
 
+    // si la cedula no está guardada, entonces mostrar el campo de nombre
     if(!(usuarios && usuarios[cedula])) {  
         nombreDiv.classList.remove('noMostrar')
+        nombreInput.focus()
+    } else {
+        passwordInput.focus()
     }
 
     continuar = true;
@@ -124,18 +129,22 @@ const login = () => {
     const formData = validarFormularioLogin()
 
     if(!formData) return;
-
+    console.log(formData)
     // guardar usuario en el localStorage
-    guardarUsuario(formData);
+    const result = guardarUsuario(formData);
+    if(!result) return;
+    limpiarFormulario()
     window.location.hash = '#calcularImc'
 }
 
-const reiniciarFormulario = (event) => {
+// Limpia todo el formulario, vacia los inputs y restablece estilos iniciales
+const limpiarFormulario = () => {
     
-    event.preventDefault();
     continuar = true;
     cedulaInput.value = ''
     cedulaInput.disabled = false;
+    nombreInput.value = '';
+    passwordInput.value = '';
 
     // ocultar inputs (password y nombre) y div de botones de login
     nombreDiv.classList.add('noMostrar')
@@ -145,6 +154,13 @@ const reiniciarFormulario = (event) => {
 
     // mostrar boton de continuar
     botonContinuar.classList.remove('noMostrar')
+}
+
+const reiniciarFormulario = (event) => {
+    
+    event.preventDefault();
+    limpiarFormulario()
+    cedulaInput.focus()
 }
 
 // eventos
