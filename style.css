@@ -293,29 +293,44 @@ label {
     background-color: darkgray;
 }
 
-#tablaIMC {
+.tablaCustom {
     margin-top: 20px;
     width: 100%;
     border-collapse: collapse;
 }
 
-#tablaIMC caption {
+.tablaCustom caption {
     font-size: 1.2em;
     margin-bottom: 10px;
 }
 
-#tablaIMC th,
-#tablaIMC td {
+.tablaCustom th,
+.tablaCustom td {
     border: 1px solid #000000;
     padding: 10px;
     text-align: center;
 }
 
-#tablaIMC th {
+.tablaCustom th {
     background-color: #007bff;
     color: white;
 }
 
-#tablaIMC tbody tr:nth-child(even) {
+.tablaCustom tbody tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: hsl(0, 0%, 95%);
 }
